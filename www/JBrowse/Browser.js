@@ -846,7 +846,7 @@ loadConfig: function () {
  * Add new track configurations.
  * @private
  */
-_addTrackConfigs: function( /**Array*/ configs ) {
+_addTrackConfigs: function(/**Array*/ configs) {
 
     if (!this.config.tracks)
         this.config.tracks = [];
@@ -856,7 +856,12 @@ _addTrackConfigs: function( /**Array*/ configs ) {
     configs = _.sortBy(configs, 'order');
     array.forEach(configs, function (conf) {
         this.trackConfigsByName[conf.label] = conf;
-        this.config.tracks.push(conf);
+        //this.config.tracks.push(conf);
+        var index = conf.index || this.config.tracks.length;
+        delete conf.index;
+        console.log(this.config.tracks);
+        this.config.tracks.splice(index, 0, conf);
+        console.log(this.config.tracks);
     }, this);
 
     return configs;

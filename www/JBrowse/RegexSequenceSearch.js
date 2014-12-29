@@ -47,6 +47,7 @@ return declare(Component,
           label: 'search_track_' + (this._searchTrackCount++),
           key: "Search reference sequence for '" + searchParams.expr + "'",
           deletable: true,
+          index: 2,
           metadata: {
             category: 'Local tracks',
             Description: "Contains all matches of the text string/regular expression '" + storeConf.searchExpr + "'"
